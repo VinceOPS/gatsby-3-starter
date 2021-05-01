@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@vinceops/eslint-config/typescript-react"
+  ]
+}

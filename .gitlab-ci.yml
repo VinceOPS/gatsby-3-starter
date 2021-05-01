@@ -1,0 +1,26 @@
+cache:
+  paths:
+    - node_modules
+
+stages:
+  - build-and-test
+
+build:
+  image: node:16
+  stage: build-and-test
+  script:
+    - node --version
+    - yarn install --frozen-lockfile --ignore-optional
+    - yarn lint
+    - yarn tsc:check
+    - yarn test
+    - yarn build
+
+e2e:
+  image: cypress/base:14
+  stage: build-and-test
+  script:
+    - node --version
+    - yarn install --frozen-lockfile --ignore-optional
+    - yarn cypress install
+    - yarn e2e:ci

@@ -1,0 +1,5 @@
+node_modules/
+.cache/
+public
+cypress/videos
+yarn-error.log
